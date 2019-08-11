@@ -1,6 +1,6 @@
 # Books Api
 
-API implementing ASP NET Core, MySql and Entity Framework Core
+API implementing C# - ASP NET Core, MySql and Entity Framework Core
 
 ## To Run
 
