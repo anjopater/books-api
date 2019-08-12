@@ -10,6 +10,10 @@ using Books.Data.Repositories.Books.Impl;
 using Books.Services.Services.Books;
 using Books.Services.Services.Books.Impl;
 using Books.Data.Seeds;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
+using System.IO;
+using System;
 
 namespace Books.Web
 {
@@ -33,6 +37,28 @@ namespace Books.Web
             services.AddCors();
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo {
+                    Version = "v1",
+                    Title = "Books API",
+                    TermsOfService = new Uri("https://example.com/terms"),
+                    Description = "A simple example ASP.NET Core Web API",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Antonio",
+                        Email = string.Empty,
+                        Url = new Uri("https://paterninaisf.github.io"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "Use under LICX",
+                        Url = new Uri("https://paterninaisf.github.io"),
+                    }
+                });
+            });
         }
 
         
@@ -56,8 +82,19 @@ namespace Books.Web
                         .AllowAnyMethod()
                         .AllowAnyOrigin();
             });
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Books API V1");
+                //c.RoutePrefix = string.Empty;
+            });
+
             app.UseMvc();
-            
         }
     }
 }
