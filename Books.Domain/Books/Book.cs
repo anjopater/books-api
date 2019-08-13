@@ -1,10 +1,13 @@
-﻿namespace Books.Domain.Books
+﻿using System;
+
+namespace Books.Domain.Books
 {
     public class Book : Entity
     {
 
-        public Book(string title, string genre, int releaseYear, string autor, string imgUrl)
+        public Book(Guid id, string title, string genre, int releaseYear, string autor, string imgUrl)
         {
+            Id = id;
             Title = title;
             Genre = genre;
             ReleaseYear = releaseYear;
@@ -12,6 +15,7 @@
             ImgUrl = imgUrl;
         }
 
+        
         public string Title { get; set; }
         public string Genre { get; set; }
         public int ReleaseYear { get; set; }

@@ -10,6 +10,7 @@ namespace Books.Data.Seeds
             if(context.Books.FirstOrDefault() == null)
             {
                 Book newBook1 = new Book(
+                    id: new System.Guid(),
                     title: "Cien Anos de Soledad",
                     genre: "Drama",
                     releaseYear: 1990,
@@ -20,6 +21,7 @@ namespace Books.Data.Seeds
                 context.SaveChanges();
                 
                 Book newBook2 = new Book(
+                    id: new System.Guid(),
                     title: "El Alquimista: Una Fabula Para Seguir Tus Suenos",
                     genre: "Fabule",
                     releaseYear: 1995,
@@ -31,6 +33,7 @@ namespace Books.Data.Seeds
                 context.SaveChanges();
                 
                 Book newBook3 = new Book(
+                    id: new System.Guid(),
                     title: "Don Quijote de la Mancha",
                     genre: "Alternate story",
                     releaseYear: 1970,

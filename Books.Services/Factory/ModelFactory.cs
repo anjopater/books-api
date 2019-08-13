@@ -22,6 +22,7 @@ namespace Books.Services.Factory
         public static Book CreateDomainModel(BookViewModel bookToCreate)
         {
             return new Book(
+                id: bookToCreate.Id,
                 title: bookToCreate.Title,
                 genre: bookToCreate.Genre,
                 releaseYear: bookToCreate.ReleaseYear,
