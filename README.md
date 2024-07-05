@@ -1,6 +1,6 @@
 # Books Api
 
-CRUD for Books
+CRUD for Books Model
 
 API implementing C# - ASP NET Core, MySql and Entity Framework Core
 
